@@ -4,20 +4,11 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
+	"html/template"
 	"io"
 	"net"
+	"net/http"
 )
-
-/*
-type Pages struct{}
-
-func (p *Pages) home(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Called")
-
-	document, _ := template.ParseFiles("index.html")
-	document.Execute(w, nil)
-}
-*/
 
 func send(socket io.Writer, data []byte) {
 	length := make([]byte, 4)
@@ -82,12 +73,39 @@ func blacklistSignature(payload, signature, public_key string) bool {
 	return response["success"] == "True"
 }
 
-func main() {
-	signature, key := generateSignature("hello")
-	//blacklistSignature("hello", signature, key)
-	b := verifySignature("hello", signature, key)
+type Pages struct {
+	template_path string
+}
 
-	fmt.Println(b)
-	fmt.Println(signature)
-	fmt.Println(key)
+func (p *Pages) home(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Called home")
+
+	if r.URL.Path != "/" {
+		w.WriteHeader(404)
+		return
+	}
+
+	document, _ := template.ParseFiles(p.template_path + "home.html")
+	document.Execute(w, nil)
+}
+
+func (p *Pages) signup(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Called signup")
+
+	document, _ := template.ParseFiles(p.template_path + "signup.html")
+	document.Execute(w, nil)
+}
+
+func main() {
+	pages := new(Pages)
+	pages.template_path = "templates/"
+
+	//testng only
+	fs := http.FileServer(http.Dir("./static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	http.HandleFunc("/", pages.home)
+	http.HandleFunc("/signup", pages.signup)
+
+	http.ListenAndServe("192.168.1.105:8000", nil)
 }
