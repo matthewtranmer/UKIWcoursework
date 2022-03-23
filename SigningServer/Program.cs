@@ -10,6 +10,7 @@ namespace SigningServer{
 
     class Server{
         ECC ecc = new ECC(Cryptography.Curves.microsoft_160);
+        //Testing private key
         BigInteger private_key = BigInteger.Parse("2344355445323434565634523454678");
         
         Dictionary<string, bool> blacklisted_tokens = new Dictionary<string, bool>();
@@ -85,7 +86,8 @@ namespace SigningServer{
                     break;
 
                 case "blacklist":
-
+                    Console.WriteLine("Blacklist");
+                    response = blacklist(conn, request);
                     break;
 
                 default:
@@ -94,6 +96,11 @@ namespace SigningServer{
 
             string json_response = JsonSerializer.Serialize(response);
             send(conn, UTF8Encoding.UTF8.GetBytes(json_response));
+        }
+
+//load blacklist from disk
+        void init_blacklist(){
+
         }
 
         public void start(){

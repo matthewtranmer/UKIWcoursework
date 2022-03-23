@@ -75,15 +75,17 @@ func verifySignature(payload, signature, public_key string) bool {
 	return response["is valid"] == "True"
 }
 
-func blacklistSignature(payload, signature, public_key string) {
-	req := map[string]string{"payload": payload, "signature": signature, "public key": public_key}
-	contactServerJSON(req)
+func blacklistSignature(payload, signature, public_key string) bool {
+	req := map[string]string{"command": "blacklist", "payload": payload, "signature": signature, "public key": public_key}
+	response, _ := contactServerJSON(req)
+
+	return response["success"] == "True"
 }
 
 func main() {
 	signature, key := generateSignature("hello")
-
-	b := verifySignature("herro", signature, key)
+	//blacklistSignature("hello", signature, key)
+	b := verifySignature("hello", signature, key)
 
 	fmt.Println(b)
 	fmt.Println(signature)
