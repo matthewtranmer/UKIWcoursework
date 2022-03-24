@@ -77,22 +77,34 @@ type Pages struct {
 	template_path string
 }
 
+func pageNotFound(w http.ResponseWriter) {
+	w.WriteHeader(404)
+	w.Write([]byte("404 - Page Not Found"))
+}
+
 func (p *Pages) home(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Called home")
 
 	if r.URL.Path != "/" {
-		w.WriteHeader(404)
+		pageNotFound(w)
 		return
 	}
 
-	document, _ := template.ParseFiles(p.template_path + "home.html")
+	document, _ := template.ParseFiles(p.template_path+"base.html", p.template_path+"home.html")
+	document.Execute(w, nil)
+}
+
+func (p *Pages) login(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Called login")
+
+	document, _ := template.ParseFiles(p.template_path+"base.html", p.template_path+"login.html")
 	document.Execute(w, nil)
 }
 
 func (p *Pages) signup(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Called signup")
 
-	document, _ := template.ParseFiles(p.template_path + "signup.html")
+	document, _ := template.ParseFiles(p.template_path+"base.html", p.template_path+"signup.html")
 	document.Execute(w, nil)
 }
 
@@ -106,6 +118,7 @@ func main() {
 
 	http.HandleFunc("/", pages.home)
 	http.HandleFunc("/signup", pages.signup)
+	http.HandleFunc("/login", pages.login)
 
 	http.ListenAndServe("192.168.1.105:8000", nil)
 }

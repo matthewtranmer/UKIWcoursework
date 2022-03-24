@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="/"><img src="static/UKIWlogo.png" alt="Home" width="60"></a></li>
+            
+            <div class="nav-text">
+                <li>
+                    <form method="GET" class="page-search" action="/search">
+                        <input placeholder="Search Website" type="text" name="query">
+                        <button style="padding: 5px;">Search</button>
+                    </form>
+               </li>
+
+                <li><a href="">Our Marinas</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Sales</a></li>
+                <li><a href="">Login</a></li>
+                <li><a href="">Sign In</a></li>
+            </div>
+            
+          </ul> 
+    </div>
+    
+    
+    <div class="form">
+        <h1>Sign Up</h1>
+        <label>Create a UKIW account</label>
+        
+        <br>
+
+        <form method="POST">
+            <div class="inputs">
+                <label for="firstname">Your Name</label>
+                <br>
+                <span class="two-inputs">
+                    <input type="text" id="firstname" name="firstname" placeholder="First Name">
+                    <input type="text" id="lastname" name="lastname" placeholder="Last Name">
+                </span>
+                <br>
+
+                <label for="username">Account Details</label>
+                <br>
+                <span class="two-inputs">
+                    <input type="text" id="username" name="username" placeholder="Username">
+                    <input type="text" id="password" name="password" placeholder="Password">
+                </span>
+                <br>
+
+                <label for="username">Email Address</label>
+                <br>
+                <span class="one-input">
+                    <input class="one-input" type="text" id="email" name="email" placeholder="Email">
+                </span>
+                <br>
+
+                <label for="username">Date of Birth </label>
+                <br>
+                <span class="three-inputs">
+                    <input type="text" id="dob-day" name="dob-day" placeholder="Day">
+                    <input type="text" id="dob-month" name="dob-month" placeholder="Month">
+                    <input type="text" id="dob-year" name="dob-year" placeholder="Year">
+                </span>  
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <hr>
+
+        <span style="font-size: 12px; border: 10px;">
+            Already have an account? 
+            <a href="">Sign In</a>
+        </span>
+        
+    </div>
+    
+</body>
+</html>

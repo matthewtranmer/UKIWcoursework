@@ -1,64 +1,67 @@
-hr {
-    border-width:0;
-    width: 65%;
-    margin: 0;
-    height:1px;
-    margin-top: 13px;
-    color: black;
-    background-color: black ;
-}
+/* Top Nav Stylings */
 
-/* Navbar stylings */
-
-.page-search{
-    margin-right: 25px;
-    margin-top: 8px;
-}
-
-.page-search input{
-    height: 25px;
-}
-
-.nav{
-    width: 100%;
-    top: 0;
-    position: relative;
-}
-
-ul {
-    
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-
+.nav-top {
+    background-color: #ffffff;
     overflow: hidden;
-    background-color: rgb(94, 94, 94);
-  }
-
-  .nav-text{
-      margin-top: 6px;
-      float: right;
-  }
+}
   
-  li {
-    float: left;
-    vertical-align: middle;
-  }
-  
-  li a {
+.nav-top a {
+    font-size: 17px;
     display: inline-block;
-    color: black;
     text-align: center;
-    padding: 14px 16px;
-    padding-right: 40px;
     text-decoration: none;
-    vertical-align: middle;
-  }
-  
-  /* Change the link color to #111 (black) on hover */
-  li a:hover {
-    color: #b6b6b6;
-  }
+    padding-top: 14px;
+    padding-bottom: 18px;
+    padding-left: 23px;
+    padding-right: 23px;
+    color: #000000f1;
+}
+
+.nav-top .rightitems a{
+    padding-top: 27px;
+    padding-bottom: 27px;
+}
+
+@media screen and (min-width: 600px)
+{
+    .nav-top .rightitems{
+        float: right;
+    }
+      
+}
+
+.nav-top .logo{
+    padding-top: 20px;
+}
+
+.nav-top a:hover:not(.burgerimg, .logo) {
+    background-color: #dfdfdf;
+}
+
+.nav-top .burgerimg {
+    display: none;
+} 
+
+@media screen and (max-width: 600px) {
+    .nav-top a:not(.logo) {display: none;}
+    .nav-top a.burgerimg {
+        float: right;
+        display: block;
+    }
+
+    .nav-top.burger {position: relative;}
+    .nav-top.burger a.burgerimg {
+        top: 0;
+        position: absolute;
+        right: 0;
+    }
+
+    .nav-top.burger a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+} 
 
 /* Form stylings */
 
@@ -75,7 +78,7 @@ ul {
 .form{
     margin-top: 5%;
     margin-left: 18%;
-    width: fit-content;
+    display: inline-block
 }
 
 .form .inputs{
@@ -110,15 +113,44 @@ ul {
     height: 23px;
 }
 
-/* Other stylings */
-
-body{
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(to right,#34adc2, #0fb397);
-    margin: 0;
+.form form {
+    display: block;
 }
 
-h1{
-    margin-bottom: 3px;
+.form hr{
+    width: 68%;
+    float: left;
+    border-width: 1px;
+}
+
+/* Home Container */
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.splashText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    white-space: nowrap; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Other Stylings */
+
+.map{
+    margin-left: 5px;
+    margin-right: 20px;
+    width: 35%;
+    float: left;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to right,#34adc2, #0fb397);
 }
