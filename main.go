@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
@@ -8,6 +9,8 @@ import (
 	"io"
 	"net"
 	"net/http"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func send(socket io.Writer, data []byte) {
@@ -73,7 +76,10 @@ func blacklistSignature(payload, signature, public_key string) bool {
 	return response["success"] == "True"
 }
 
+// ---------------------TODO: Separate These Functions Into Different Files-----------------------------------
+
 type Pages struct {
+	db            *sql.DB
 	template_path string
 }
 
@@ -94,8 +100,30 @@ func (p *Pages) home(w http.ResponseWriter, r *http.Request) {
 	document.Execute(w, nil)
 }
 
+//obviously for testing only
 func (p *Pages) login(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Called login")
+
+	if r.Method == "POST" {
+		stmt, err := p.db.Prepare("SELECT Password FROM user_data WHERE Username = ?")
+		fmt.Println(err)
+		r.ParseForm()
+
+		fmt.Println(r.PostForm["username"][0])
+
+		password := new(string)
+		err = stmt.QueryRow(r.PostForm["username"][0]).Scan(password)
+		fmt.Println(err)
+
+		if *password == r.PostForm["password"][0] {
+			fmt.Println("Authenticated")
+		} else {
+			fmt.Println("Not Authenticated")
+		}
+
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
+	}
 
 	document, _ := template.ParseFiles(p.template_path+"base.html", p.template_path+"login.html")
 	document.Execute(w, nil)
@@ -104,12 +132,24 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request) {
 func (p *Pages) signup(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Called signup")
 
+	if r.Method == "POST" {
+		stmt, _ := p.db.Prepare("INSERT INTO user_data (Username, Password) VALUES (?, ?)")
+		r.ParseForm()
+
+		stmt.Exec(r.PostForm["username"][0], r.PostForm["password"][0])
+		defer stmt.Close()
+
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
+	}
+
 	document, _ := template.ParseFiles(p.template_path+"base.html", p.template_path+"signup.html")
 	document.Execute(w, nil)
 }
 
 func main() {
 	pages := new(Pages)
+	pages.db, _ = sql.Open("mysql", "matthew:MysqlPassword111@tcp(127.0.0.1:3306)/UKIW")
 	pages.template_path = "templates/"
 
 	//testng only
