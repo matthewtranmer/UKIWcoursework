@@ -1,0 +1,187 @@
+/* Top Nav Stylings */
+
+.nav-top {
+    background-color: #ffffff;
+    overflow: hidden;
+}
+  
+.nav-top a {
+    font-size: 17px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 14px;
+    padding-bottom: 18px;
+    padding-left: 23px;
+    padding-right: 23px;
+    color: #000000f1;
+}
+
+.nav-top .rightitems a{
+    padding-top: 27px;
+    padding-bottom: 27px;
+}
+
+@media screen and (min-width: 600px)
+{
+    .nav-top .rightitems{
+        float: right;
+    }
+      
+}
+
+.nav-top .logo{
+    padding-top: 20px;
+}
+
+.nav-top a:hover:not(.burgerimg, .logo) {
+    background-color: #dfdfdf;
+}
+
+.nav-top .burgerimg {
+    display: none;
+} 
+
+@media screen and (max-width: 600px) {
+    .nav-top a:not(.logo) {display: none;}
+    .nav-top a.burgerimg {
+        float: right;
+        display: block;
+    }
+
+    .nav-top.burger {position: relative;}
+    .nav-top.burger a.burgerimg {
+        top: 0;
+        position: absolute;
+        right: 0;
+    }
+
+    .nav-top.burger a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+} 
+
+/* Form stylings */
+
+.form label{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form button{
+    margin-top: 15px;
+    padding: 6px;
+    padding-right: 8px;
+}
+
+.form{
+    margin-top: 5%;
+    margin-left: 18%;
+    display: inline-block;
+}
+
+.form .inputs{
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.form .inputs > *{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.form .one-input > *{
+    width: 65.3%;
+}
+
+.form .two-inputs > *{
+    width: 30.9%;
+    margin-right: 1.6%;
+}
+
+.form .three-inputs > *{
+    width: 12%;
+    margin-right: 1.6%;
+}
+
+.form input{
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: lightgray;
+    padding: 2px;
+    height: 23px;
+}
+
+.form form {
+    display: block;
+}
+
+.form hr{
+    width: 68%;
+    float: left;
+    border-width: 1px;
+}
+
+/* Home Container */
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.splashText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    white-space: nowrap; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.login{
+    width: 50%;
+}
+
+/* Message box stylings */
+
+.alert {
+    border-width: 10px;
+    background-color: #e0291c; 
+    color: #000000;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    padding: 22px;
+    
+}
+
+.close_button:hover {
+    color: #ffffff;
+} 
+  
+.close_button {
+    font-size: 23px;
+    line-height: 20px;
+    cursor: pointer;
+    margin-left: 16px;
+    font-weight: bold;
+    float: right;
+    color: #000000;
+    transition: 0.4s;
+}
+
+/* Other Stylings */
+
+.map{
+    margin-left: 5px;
+    margin-right: 20px;
+    width: 35%;
+    float: left;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to right,#34adc2, #0fb397);
+}

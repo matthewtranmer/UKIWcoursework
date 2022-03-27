@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="nav-top" id="nav-top">
+        <a class="logo" href="/">
+            <img src="/static/img/UKIWlogo.png" width="70" alt="Home">
+        </a>
+
+        <span class = "rightitems">
+            <a href="/ourmarinas">Our Marinas</a>
+            <a href="/aboutus">About Us</a>
+            <a href="/sales">Sales</a>
+            <a href="/login">Login</a>
+            <a href="/signup">Sign Up</a>
+
+            <a href="javascript:void(0);" onclick="verticalMenu()" class="burgerimg">
+                <img src="/static/img/icon.png" width="17">
+            </a>
+        </span>
+    </div> 
+
+    {{ template "content" .}}
+
+    <script>
+        function verticalMenu() {
+            var element = document.getElementById("nav-top")
+
+            if (element.className == "nav-top") {
+                element.className += " burger"
+                return
+            } 
+            
+            element.className = "nav-top"
+        } 
+    </script>
+</body>
+</html>
