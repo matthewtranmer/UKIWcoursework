@@ -18,8 +18,13 @@
             <a href="/ourmarinas">Our Marinas</a>
             <a href="/aboutus">About Us</a>
             <a href="/sales">Sales</a>
+            
+            {{ if .User_details }}
+            <a href="/login">My Account</a>
+            {{else}}
             <a href="/login">Login</a>
             <a href="/signup">Sign Up</a>
+            {{end}}
 
             <a href="javascript:void(0);" onclick="verticalMenu()" class="burgerimg">
                 <img src="/static/img/icon.png" width="17">

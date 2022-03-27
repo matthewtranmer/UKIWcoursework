@@ -78,7 +78,6 @@ func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	//a cookie has been sent
 	if err == nil {
 		user_details, err := parseToken(cookie)
-		fmt.Println(err)
 		//token is ok, run function and pass user details
 		if err == nil {
 			http_error = h(w, r, user_details)
@@ -137,6 +136,10 @@ type Pages struct {
 	template_path string
 }
 
+type DefaultTemplateData struct {
+	User_details *UserDetails
+}
+
 func (p *Pages) home(w http.ResponseWriter, r *http.Request, user_details *UserDetails) ErrorResponse {
 	fmt.Println("Called home")
 
@@ -144,8 +147,15 @@ func (p *Pages) home(w http.ResponseWriter, r *http.Request, user_details *UserD
 		return HTTPerror{404}
 	}
 
-	document, _ := template.ParseFiles(p.template_path+"base.html", p.template_path+"home.html")
-	document.Execute(w, nil)
+	document, err := template.ParseFiles(p.template_path+"base.html", p.template_path+"home.html")
+	if err != nil {
+		return HTTPerror{500}
+	}
+
+	err = document.Execute(w, DefaultTemplateData{user_details})
+	if err != nil {
+		return HTTPerror{500}
+	}
 	return nil
 }
 
@@ -195,13 +205,17 @@ func loginUser(w http.ResponseWriter, username string) error {
 	return nil
 }
 
-type 
+type LoginTemplateData struct {
+	User_details  *UserDetails
+	Error         bool
+	Error_message string
+}
 
 //obviously for testing only
 func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *UserDetails) ErrorResponse {
 	fmt.Println("Called login")
 
-	
+	document, err := template.ParseFiles(p.template_path+"base.html", p.template_path+"login.html")
 	if err != nil {
 		return HTTPerror{500}
 	}
@@ -223,9 +237,9 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *User
 
 		err = stmt.QueryRow(username).Scan(database_hash)
 		if err != nil {
-			
 			data := LoginTemplateData{
-				*user_details,
+				user_details,
+				true,
 				"The username you entered does not exist!",
 			}
 			err = document.Execute(w, data)
@@ -249,7 +263,11 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *User
 			return nil
 		}
 
-		data := LoginTemplateData{"The password you entered was invalid!"}
+		data := LoginTemplateData{
+			user_details,
+			true,
+			"The password you entered was invalid!",
+		}
 		err = document.Execute(w, data)
 		if err != nil {
 			return HTTPerror{500}
@@ -257,7 +275,12 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *User
 		return nil
 	}
 
-	err = document.Execute(w, nil)
+	data := LoginTemplateData{
+		user_details,
+		false,
+		"",
+	}
+	err = document.Execute(w, data)
 	if err != nil {
 		return HTTPerror{500}
 	}
@@ -308,7 +331,7 @@ func (p *Pages) signup(w http.ResponseWriter, r *http.Request, user_details *Use
 		return HTTPerror{500}
 	}
 
-	err = document.Execute(w, nil)
+	err = document.Execute(w, DefaultTemplateData{user_details})
 	if err != nil {
 		return HTTPerror{500}
 	}

@@ -1,7 +1,7 @@
 {{ define "content" }}
 
 <div class="form">
-    {{ if .Error_message }}
+    {{ if .Error }}
     <div class="alert">
         <span class="close_button" onclick="this.parentElement.style.display='none';">&times;</span>
         {{.Error_message}}
