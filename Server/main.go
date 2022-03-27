@@ -1,14 +1,17 @@
 package main
 
 import (
+	handler "UKIWcoursework/Server/Handler"
 	signing "UKIWcoursework/Server/Signing"
 	"database/sql"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"html/template"
+	"io"
+	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"strconv"
 	"time"
 
@@ -16,159 +19,40 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-type UserDetails struct {
-	username string
-}
-
-var errTokenInvalid error = errors.New("the given token is invalid")
-var errTokenExpired error = errors.New("the given token is expired")
-
-func parseToken(cookie *http.Cookie) (user_details *UserDetails, err error) {
-	unescaped_token, err := url.PathUnescape(cookie.Value)
-	if err != nil {
-		return nil, err
-	}
-
-	json_token := []byte(unescaped_token)
-
-	token := new(Token)
-	err = json.Unmarshal(json_token, token)
-	if err != nil {
-		return nil, err
-	}
-
-	expiration, err := strconv.Atoi(token.Expiration)
-	if err != nil {
-		return nil, err
-	}
-
-	if expiration < int(time.Now().Unix()) {
-		return nil, errTokenExpired
-	}
-
-	payload := map[string]string{
-		"username":   token.Username,
-		"expiration": token.Expiration,
-	}
-
-	json_payload, err := json.Marshal(payload)
-	if err != nil {
-		return nil, err
-	}
-
-	verified, err := signing.VerifySignature(string(json_payload), token.Signature, token.Public_key)
-	if err != nil {
-		return nil, err
-	}
-
-	if !verified {
-		return nil, errTokenInvalid
-	}
-
-	user_details = &UserDetails{token.Username}
-	return user_details, nil
-}
-
-type handler func(w http.ResponseWriter, r *http.Request, user_details *UserDetails) ErrorResponse
-
-func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	var http_error ErrorResponse
-
-	cookie, err := r.Cookie("auth_token")
-	//a cookie has been sent
-	if err == nil {
-		user_details, err := parseToken(cookie)
-		//token is ok, run function and pass user details
-		if err == nil {
-			http_error = h(w, r, user_details)
-
-		} else if err == errTokenExpired || err == errTokenInvalid {
-			http.Redirect(w, r, "/login", http.StatusSeeOther)
-			return
-
-		} else {
-			//some other error has happened
-			http_error = HTTPerror{500}
-		}
-	} else {
-		//no cookie has been sent
-		http_error = h(w, r, nil)
-	}
-
-	if http_error == nil {
-		return
-	}
-
-	//handle error
-	w.Header().Add("content-type", "text/html")
-	w.WriteHeader(http_error.Code())
-
-	message := "<h1>" + http_error.Error() + "</h1>"
-	w.Write([]byte(message))
-}
-
-type ErrorResponse interface {
-	Code() int
-	Error() string
-}
-
-type HTTPerror struct {
-	code int
-}
-
-func (e HTTPerror) Code() int {
-	return e.code
-}
-
-func (e HTTPerror) Error() string {
-	switch e.code {
-	case 404:
-		return "404 - Page Not Found"
-	case 500:
-		return "500 - Internal Server Error"
-	}
-
-	return ""
-}
-
 type Pages struct {
 	db            *sql.DB
 	template_path string
 }
 
 type DefaultTemplateData struct {
-	User_details *UserDetails
+	User_details *handler.UserDetails
 }
 
-func (p *Pages) home(w http.ResponseWriter, r *http.Request, user_details *UserDetails) ErrorResponse {
+func (p *Pages) home(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
 	fmt.Println("Called home")
 
 	if r.URL.Path != "/" {
-		return HTTPerror{404}
+		return handler.HTTPerror{Code: 404, Err: nil}
 	}
 
 	document, err := template.ParseFiles(p.template_path+"base.html", p.template_path+"home.html")
 	if err != nil {
-		return HTTPerror{500}
+		return handler.HTTPerror{Code: 500, Err: err}
 	}
 
 	err = document.Execute(w, DefaultTemplateData{user_details})
 	if err != nil {
-		return HTTPerror{500}
+		return handler.HTTPerror{Code: 500, Err: err}
 	}
 	return nil
 }
 
-type Token struct {
-	Username   string
-	Expiration string
-	Signature  string
-	Public_key string
-}
-
 func loginUser(w http.ResponseWriter, username string) error {
-	//20 days
-	expiration := time.Now().Unix() + 28800
+	//8 hours
+	//expiration := time.Now().Unix() + 28800
+
+	//30 minute expiration time
+	expiration := time.Now().Unix() + 1800
 
 	payload := map[string]string{
 		"username":   username,
@@ -185,7 +69,7 @@ func loginUser(w http.ResponseWriter, username string) error {
 		return err
 	}
 
-	token := Token{
+	token := handler.Token{
 		Username:   username,
 		Expiration: payload["expiration"],
 		Signature:  signature,
@@ -206,29 +90,29 @@ func loginUser(w http.ResponseWriter, username string) error {
 }
 
 type LoginTemplateData struct {
-	User_details  *UserDetails
+	User_details  *handler.UserDetails
 	Error         bool
 	Error_message string
 }
 
 //obviously for testing only
-func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *UserDetails) ErrorResponse {
+func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
 	fmt.Println("Called login")
 
 	document, err := template.ParseFiles(p.template_path+"base.html", p.template_path+"login.html")
 	if err != nil {
-		return HTTPerror{500}
+		return handler.HTTPerror{Code: 500, Err: err}
 	}
 
 	if r.Method == "POST" {
 		stmt, err := p.db.Prepare("SELECT Password FROM user_data WHERE Username = ?")
 		if err != nil {
-			return HTTPerror{500}
+			return handler.HTTPerror{Code: 500, Err: err}
 		}
 
 		err = r.ParseForm()
 		if err != nil {
-			return HTTPerror{500}
+			return handler.HTTPerror{Code: 500, Err: err}
 		}
 
 		username := r.PostForm["username"][0]
@@ -245,7 +129,7 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *User
 			err = document.Execute(w, data)
 
 			if err != nil {
-				return HTTPerror{500}
+				return handler.HTTPerror{Code: 500, Err: err}
 			}
 			return nil
 		}
@@ -256,10 +140,17 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *User
 
 			err = loginUser(w, username)
 			if err != nil {
-				return HTTPerror{500}
+				return handler.HTTPerror{Code: 500, Err: err}
 			}
 
-			http.Redirect(w, r, "/", http.StatusSeeOther)
+			r.ParseForm()
+			redirect_url := r.Form.Get("return")
+
+			if redirect_url == "" {
+				redirect_url = "/"
+			}
+
+			http.Redirect(w, r, redirect_url, http.StatusSeeOther)
 			return nil
 		}
 
@@ -270,7 +161,7 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *User
 		}
 		err = document.Execute(w, data)
 		if err != nil {
-			return HTTPerror{500}
+			return handler.HTTPerror{Code: 500, Err: err}
 		}
 		return nil
 	}
@@ -282,30 +173,30 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *User
 	}
 	err = document.Execute(w, data)
 	if err != nil {
-		return HTTPerror{500}
+		return handler.HTTPerror{Code: 500, Err: err}
 	}
 
 	return nil
 }
 
-func (p *Pages) signup(w http.ResponseWriter, r *http.Request, user_details *UserDetails) ErrorResponse {
+func (p *Pages) signup(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
 	fmt.Println("Called signup")
 
 	if r.Method == "POST" {
 		stmt, err := p.db.Prepare("INSERT INTO user_data (Username, Password, Email, DOB, FirstName, LastName) VALUES (?, ?, ?, ?, ?, ?)")
 		if err != nil {
-			return HTTPerror{500}
+			return handler.HTTPerror{Code: 500, Err: err}
 		}
 
 		err = r.ParseForm()
 		if err != nil {
-			return HTTPerror{500}
+			return handler.HTTPerror{Code: 500, Err: err}
 		}
 
 		DOB := r.PostForm["dob-year"][0] + "-" + r.PostForm["dob-month"][0] + "-" + r.PostForm["dob-day"][0]
 		password_hash, err := bcrypt.GenerateFromPassword([]byte(r.PostForm["password"][0]), 12)
 		if err != nil {
-			return HTTPerror{500}
+			return handler.HTTPerror{Code: 500, Err: err}
 		}
 
 		_, err = stmt.Exec(
@@ -317,29 +208,70 @@ func (p *Pages) signup(w http.ResponseWriter, r *http.Request, user_details *Use
 			r.PostForm["lastname"][0],
 		)
 		if err != nil {
-			return HTTPerror{500}
+			return handler.HTTPerror{Code: 500, Err: err}
 		}
 
 		defer stmt.Close()
 
+		loginUser(w, r.PostForm["username"][0])
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return nil
 	}
 
 	document, err := template.ParseFiles(p.template_path+"base.html", p.template_path+"signup.html")
 	if err != nil {
-		return HTTPerror{500}
+		return handler.HTTPerror{Code: 500, Err: err}
 	}
 
 	err = document.Execute(w, DefaultTemplateData{user_details})
 	if err != nil {
-		return HTTPerror{500}
+		return handler.HTTPerror{Code: 500, Err: err}
 	}
 
 	return nil
 }
 
+func (p *Pages) myaccount(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
+	document, err := template.ParseFiles(p.template_path+"base.html", p.template_path+"myaccount.html")
+	if err != nil {
+		return handler.HTTPerror{Code: 500, Err: err}
+	}
+
+	err = document.Execute(w, DefaultTemplateData{user_details})
+	if err != nil {
+		fmt.Println(err)
+		return handler.HTTPerror{Code: 500, Err: err}
+	}
+
+	return nil
+}
+
+func (p *Pages) logout(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
+	cookie, _ := r.Cookie("auth_token")
+	token, _ := handler.ParseToken(cookie)
+	payload, _ := handler.GenerateSignatureToken(token)
+
+	signing.BlacklistSignature(string(payload), token.Signature, token.Public_key)
+
+	cookie = new(http.Cookie)
+	cookie.Name = "auth_token"
+	cookie.Value = "null"
+
+	http.SetCookie(w, cookie)
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+	return nil
+}
+
 func main() {
+	file, err := os.OpenFile("logs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	if err != nil {
+		panic(err)
+	}
+
+	writer := io.MultiWriter(file, os.Stdout)
+	log.SetOutput(writer)
+
 	pages := new(Pages)
 	pages.db, _ = sql.Open("mysql", "matthew:MysqlPassword111@tcp(127.0.0.1:3306)/UKIW")
 	pages.template_path = "templates/"
@@ -348,9 +280,11 @@ func main() {
 	fs := http.FileServer(http.Dir("/home/matthew/go/src/UKIWcoursework/static"))
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 
-	http.Handle("/", handler(pages.home))
-	http.Handle("/signup", handler(pages.signup))
-	http.Handle("/login", handler(pages.login))
+	http.Handle("/", handler.Handler{Middleware: pages.home, Require_login: false})
+	http.Handle("/signup", handler.Handler{Middleware: pages.signup, Require_login: false})
+	http.Handle("/login", handler.Handler{Middleware: pages.login, Require_login: false})
+	http.Handle("/myaccount", handler.Handler{Middleware: pages.myaccount, Require_login: true})
+	http.Handle("/logout", handler.Handler{Middleware: pages.logout, Require_login: true})
 
 	http.ListenAndServe("192.168.1.105:8000", nil)
 }

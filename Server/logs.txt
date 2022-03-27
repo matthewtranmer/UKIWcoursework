@@ -1,0 +1,1104 @@
+2022/03/27 23:00:37 dial tcp4 127.0.0.1:50508: connect: connection refused
+2022/03/27 23:00:37 dial tcp4 127.0.0.1:50508: connect: connection refused
+2022/03/27 23:01:02 dial tcp4 127.0.0.1:50508: connect: connection refused
+2022/03/27 23:06:55 dial tcp4 127.0.0.1:50508: connect: connection refused
+2022/03/27 23:06:55 dial tcp4 127.0.0.1:50508: connect: connection refused
+2022/03/27 23:15:48 http: superfluous response.WriteHeader call from main.(*Pages).logout (main.go:250)
+2022/03/27 23:32:23 http: panic serving 192.168.1.105:35836: runtime error: invalid memory address or nil pointer dereference
+goroutine 20 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000e40b0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:70 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ad40, 0xc0000e00e0}, 0xc0000f4100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:105 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad40, 0xc0000e00e0}, 0xc0000f4100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad40, 0xc0000e00e0}, 0xc0000f4100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018c280, {0x93c318, 0xc000188180})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:35:00 http: panic serving 192.168.1.105:35874: runtime error: invalid memory address or nil pointer dereference
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c2c0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:70 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad60, 0xc00015e0e0}, 0xc000028100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:105 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc00015e0e0}, 0xc000028100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad60, 0xc00015e0e0}, 0xc000028100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000128e60, {0x93c338, 0xc00007e300})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:35:00 http: panic serving 192.168.1.105:35876: runtime error: invalid memory address or nil pointer dereference
+goroutine 9 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c370)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:70 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad60, 0xc00015e1c0}, 0xc000028300)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:105 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc00015e1c0}, 0xc000028300)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad60, 0xc00015e1c0}, 0xc000028300)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000128f00, {0x93c338, 0xc00007e480})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:35:00 http: panic serving 192.168.1.105:35878: runtime error: invalid memory address or nil pointer dereference
+goroutine 18 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc000232000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:70 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad60, 0xc00022e000}, 0xc000222000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:105 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc00022e000}, 0xc000222000)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad60, 0xc00022e000}, 0xc000222000)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000208000, {0x93c338, 0xc00021a000})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:35:00 http: panic serving 192.168.1.105:35880: runtime error: invalid memory address or nil pointer dereference
+goroutine 34 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000e8000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:70 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad60, 0xc0000e4000}, 0xc0000da000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:105 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0000e4000}, 0xc0000da000)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad60, 0xc0000e4000}, 0xc0000da000)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000cc000, {0x93c338, 0xc0000d4000})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:35:00 http: panic serving 192.168.1.105:35882: runtime error: invalid memory address or nil pointer dereference
+goroutine 20 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0002320b0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:70 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad60, 0xc00022e0e0}, 0xc000222100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:105 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc00022e0e0}, 0xc000222100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad60, 0xc00022e0e0}, 0xc000222100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0002080a0, {0x93c338, 0xc00021a140})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:35:00 http: panic serving 192.168.1.105:35884: runtime error: invalid memory address or nil pointer dereference
+goroutine 36 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000e80b0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:70 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad60, 0xc0000e40e0}, 0xc0000da100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:105 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0000e40e0}, 0xc0000da100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad60, 0xc0000e40e0}, 0xc0000da100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000cc0a0, {0x93c338, 0xc0000d4140})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:35:00 http: panic serving 192.168.1.105:35886: runtime error: invalid memory address or nil pointer dereference
+goroutine 38 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000e8160)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:70 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad60, 0xc0000e41c0}, 0xc0000da200)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:105 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0000e41c0}, 0xc0000da200)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad60, 0xc0000e41c0}, 0xc0000da200)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000cc140, {0x93c338, 0xc0000d4240})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:35:00 http: panic serving 192.168.1.105:35888: runtime error: invalid memory address or nil pointer dereference
+goroutine 40 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000e8210)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:70 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad60, 0xc0000e42a0}, 0xc0000da300)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:105 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0000e42a0}, 0xc0000da300)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad60, 0xc0000e42a0}, 0xc0000da300)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000cc1e0, {0x93c338, 0xc0000d4340})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:35:00 http: panic serving 192.168.1.105:35890: runtime error: invalid memory address or nil pointer dereference
+goroutine 42 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000e82c0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:70 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad60, 0xc0000e4380}, 0xc0000da400)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:105 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0000e4380}, 0xc0000da400)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad60, 0xc0000e4380}, 0xc0000da400)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000cc280, {0x93c338, 0xc0000d4440})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:35:00 http: panic serving 192.168.1.105:35892: runtime error: invalid memory address or nil pointer dereference
+goroutine 44 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000e8370)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:70 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad60, 0xc0000e4460}, 0xc0000da500)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:105 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0000e4460}, 0xc0000da500)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad60, 0xc0000e4460}, 0xc0000da500)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000cc320, {0x93c338, 0xc0000d4540})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:36:28 http: panic serving 192.168.1.105:35906: runtime error: invalid memory address or nil pointer dereference
+goroutine 20 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001e02c0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0x159
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000198ea0, 0x0}, {0x93ad60, 0xc0001fe0e0}, 0xc000222000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0001fe0e0}, 0xc000222000)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001fe000}, {0x93ad60, 0xc0001fe0e0}, 0xc000222000)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0001c0e60, {0x93c338, 0xc0001dc2c0})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:36:28 http: panic serving 192.168.1.105:35908: runtime error: invalid memory address or nil pointer dereference
+goroutine 34 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0x159
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000198ea0, 0x0}, {0x93ad60, 0xc0000ea000}, 0xc0000e0000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0000ea000}, 0xc0000e0000)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001fe000}, {0x93ad60, 0xc0000ea000}, 0xc0000e0000)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000d2000, {0x93c338, 0xc0000da000})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:36:28 http: panic serving 192.168.1.105:35910: runtime error: invalid memory address or nil pointer dereference
+goroutine 36 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee0b0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0x159
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000198ea0, 0x0}, {0x93ad60, 0xc0000ea0e0}, 0xc0000e0100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0000ea0e0}, 0xc0000e0100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001fe000}, {0x93ad60, 0xc0000ea0e0}, 0xc0000e0100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000d20a0, {0x93c338, 0xc0000da140})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:36:28 http: panic serving 192.168.1.105:35912: runtime error: invalid memory address or nil pointer dereference
+goroutine 38 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee160)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0x159
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000198ea0, 0x0}, {0x93ad60, 0xc0000ea1c0}, 0xc0000e0200)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0000ea1c0}, 0xc0000e0200)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001fe000}, {0x93ad60, 0xc0000ea1c0}, 0xc0000e0200)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000d2140, {0x93c338, 0xc0000da240})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:36:28 http: panic serving 192.168.1.105:35914: runtime error: invalid memory address or nil pointer dereference
+goroutine 22 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001e0370)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0x159
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000198ea0, 0x0}, {0x93ad60, 0xc0001fe1c0}, 0xc000222200)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0001fe1c0}, 0xc000222200)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001fe000}, {0x93ad60, 0xc0001fe1c0}, 0xc000222200)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0001c0f00, {0x93c338, 0xc0001dc440})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:36:28 http: panic serving 192.168.1.105:35916: runtime error: invalid memory address or nil pointer dereference
+goroutine 40 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee210)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0x159
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000198ea0, 0x0}, {0x93ad60, 0xc0000ea2a0}, 0xc0000e0300)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0000ea2a0}, 0xc0000e0300)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001fe000}, {0x93ad60, 0xc0000ea2a0}, 0xc0000e0300)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000d21e0, {0x93c338, 0xc0000da340})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:36:28 http: panic serving 192.168.1.105:35918: runtime error: invalid memory address or nil pointer dereference
+goroutine 24 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001e0420)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0x159
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000198ea0, 0x0}, {0x93ad60, 0xc0001fe2a0}, 0xc000222300)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0001fe2a0}, 0xc000222300)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001fe000}, {0x93ad60, 0xc0001fe2a0}, 0xc000222300)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0001c0fa0, {0x93c338, 0xc0001dc540})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:36:28 http: panic serving 192.168.1.105:35920: runtime error: invalid memory address or nil pointer dereference
+goroutine 42 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee2c0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0x159
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000198ea0, 0x0}, {0x93ad60, 0xc0000ea380}, 0xc0000e0400)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0000ea380}, 0xc0000e0400)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001fe000}, {0x93ad60, 0xc0000ea380}, 0xc0000e0400)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000d2280, {0x93c338, 0xc0000da440})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:36:28 http: panic serving 192.168.1.105:35922: runtime error: invalid memory address or nil pointer dereference
+goroutine 50 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00030a000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0x159
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000198ea0, 0x0}, {0x93ad60, 0xc000306000}, 0xc0002fa000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc000306000}, 0xc0002fa000)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001fe000}, {0x93ad60, 0xc000306000}, 0xc0002fa000)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0002e0000, {0x93c338, 0xc0002f2000})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:36:28 http: panic serving 192.168.1.105:35924: runtime error: invalid memory address or nil pointer dereference
+goroutine 44 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb61040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee370)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0x159
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000198ea0, 0x0}, {0x93ad60, 0xc0000ea460}, 0xc0000e0500)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb71be0, {0x93ad60, 0xc0000ea460}, 0xc0000e0500)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc0001fe000}, {0x93ad60, 0xc0000ea460}, 0xc0000e0500)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000d2320, {0x93c338, 0xc0000da540})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:41:42 http: panic serving 192.168.1.105:35950: runtime error: invalid memory address or nil pointer dereference
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c370)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad80, 0xc00015e0e0}, 0xc000028100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ad80, 0xc00015e0e0}, 0xc000028100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad80, 0xc00015e0e0}, 0xc000028100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000128e60, {0x93c358, 0xc00007e300})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:41:42 http: panic serving 192.168.1.105:35952: runtime error: invalid memory address or nil pointer dereference
+goroutine 9 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c4d0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad80, 0xc00015e1c0}, 0xc000028300)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ad80, 0xc00015e1c0}, 0xc000028300)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad80, 0xc00015e1c0}, 0xc000028300)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000128f00, {0x93c358, 0xc00007e480})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:41:42 http: panic serving 192.168.1.105:35954: runtime error: invalid memory address or nil pointer dereference
+goroutine 18 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001a00b0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad80, 0xc0001a8000}, 0xc00019c000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ad80, 0xc0001a8000}, 0xc00019c000)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad80, 0xc0001a8000}, 0xc00019c000)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018c000, {0x93c358, 0xc000196000})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:41:42 http: panic serving 192.168.1.105:35956: runtime error: invalid memory address or nil pointer dereference
+goroutine 11 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c630)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad80, 0xc00015e2a0}, 0xc000028400)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ad80, 0xc00015e2a0}, 0xc000028400)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad80, 0xc00015e2a0}, 0xc000028400)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000128fa0, {0x93c358, 0xc00007e580})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:41:42 http: panic serving 192.168.1.105:35958: runtime error: invalid memory address or nil pointer dereference
+goroutine 20 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001a0210)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad80, 0xc0001a80e0}, 0xc00019c100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ad80, 0xc0001a80e0}, 0xc00019c100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad80, 0xc0001a80e0}, 0xc00019c100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018c0a0, {0x93c358, 0xc000196140})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:41:42 http: panic serving 192.168.1.105:35960: runtime error: invalid memory address or nil pointer dereference
+goroutine 13 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c790)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad80, 0xc00015e380}, 0xc000028500)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ad80, 0xc00015e380}, 0xc000028500)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad80, 0xc00015e380}, 0xc000028500)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000129040, {0x93c358, 0xc00007e680})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:41:42 http: panic serving 192.168.1.105:35962: runtime error: invalid memory address or nil pointer dereference
+goroutine 15 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c8f0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad80, 0xc00015e460}, 0xc000028600)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ad80, 0xc00015e460}, 0xc000028600)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad80, 0xc00015e460}, 0xc000028600)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0001290e0, {0x93c358, 0xc00007e780})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:41:42 http: panic serving 192.168.1.105:35964: runtime error: invalid memory address or nil pointer dereference
+goroutine 34 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000e40b0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad80, 0xc0000ee000}, 0xc0000e0000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ad80, 0xc0000ee000}, 0xc0000e0000)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad80, 0xc0000ee000}, 0xc0000e0000)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000d0000, {0x93c358, 0xc0000d8000})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:41:42 http: panic serving 192.168.1.105:35966: runtime error: invalid memory address or nil pointer dereference
+goroutine 22 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001a0370)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad80, 0xc0001a81c0}, 0xc00019c200)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ad80, 0xc0001a81c0}, 0xc00019c200)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad80, 0xc0001a81c0}, 0xc00019c200)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018c140, {0x93c358, 0xc000196240})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:41:42 http: panic serving 192.168.1.105:35968: runtime error: invalid memory address or nil pointer dereference
+goroutine 36 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000e4210)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ad80, 0xc0000ee0e0}, 0xc0000e0100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ad80, 0xc0000ee0e0}, 0xc0000e0100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ad80, 0xc0000ee0e0}, 0xc0000e0100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000d00a0, {0x93c358, 0xc0000d8140})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:42:09 http: panic serving 192.168.1.105:35972: runtime error: invalid memory address or nil pointer dereference
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c370)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ade0, 0xc00015e0e0}, 0xc000028100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc00015e0e0}, 0xc000028100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc00015e0e0}, 0xc000028100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000128f00, {0x93c3b8, 0xc00007e300})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:42:09 http: panic serving 192.168.1.105:35974: runtime error: invalid memory address or nil pointer dereference
+goroutine 18 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001a00b0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ade0, 0xc0001a8000}, 0xc00019c000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0001a8000}, 0xc00019c000)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0001a8000}, 0xc00019c000)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018c000, {0x93c3b8, 0xc000196000})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:42:09 http: panic serving 192.168.1.105:35976: runtime error: invalid memory address or nil pointer dereference
+goroutine 20 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001a0210)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ade0, 0xc0001a80e0}, 0xc00019c100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0001a80e0}, 0xc00019c100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0001a80e0}, 0xc00019c100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018c0a0, {0x93c3b8, 0xc000196140})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:42:09 http: panic serving 192.168.1.105:35978: runtime error: invalid memory address or nil pointer dereference
+goroutine 22 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001a0370)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ade0, 0xc0001a81c0}, 0xc00019c200)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0001a81c0}, 0xc00019c200)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0001a81c0}, 0xc00019c200)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018c140, {0x93c3b8, 0xc000196240})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:42:09 http: panic serving 192.168.1.105:35980: runtime error: invalid memory address or nil pointer dereference
+goroutine 34 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000f20b0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ade0, 0xc0000fc000}, 0xc0000ee000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0000fc000}, 0xc0000ee000)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0000fc000}, 0xc0000ee000)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000c6000, {0x93c3b8, 0xc0000e6000})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:42:09 http: panic serving 192.168.1.105:35982: runtime error: invalid memory address or nil pointer dereference
+goroutine 9 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c4d0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ade0, 0xc00015e1c0}, 0xc000028300)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc00015e1c0}, 0xc000028300)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc00015e1c0}, 0xc000028300)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000128fa0, {0x93c3b8, 0xc00007e480})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:42:09 http: panic serving 192.168.1.105:35984: runtime error: invalid memory address or nil pointer dereference
+goroutine 11 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c630)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ade0, 0xc00015e2a0}, 0xc000028400)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc00015e2a0}, 0xc000028400)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc00015e2a0}, 0xc000028400)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000129040, {0x93c3b8, 0xc00007e580})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:42:09 http: panic serving 192.168.1.105:35986: runtime error: invalid memory address or nil pointer dereference
+goroutine 24 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001a04d0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ade0, 0xc0001a82a0}, 0xc00019c300)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0001a82a0}, 0xc00019c300)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0001a82a0}, 0xc00019c300)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018c1e0, {0x93c3b8, 0xc000196340})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:42:09 http: panic serving 192.168.1.105:35988: runtime error: invalid memory address or nil pointer dereference
+goroutine 26 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001a0630)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ade0, 0xc0001a8380}, 0xc00019c400)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0001a8380}, 0xc00019c400)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0001a8380}, 0xc00019c400)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018c280, {0x93c3b8, 0xc000196440})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:42:09 http: panic serving 192.168.1.105:35990: runtime error: invalid memory address or nil pointer dereference
+goroutine 36 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000f2210)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:72 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012ec0, 0x0}, {0x93ade0, 0xc0000fc0e0}, 0xc0000ee100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:107 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0000fc0e0}, 0xc0000ee100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0000fc0e0}, 0xc0000ee100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000c60a0, {0x93c3b8, 0xc0000e6140})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:44 http: panic serving 192.168.1.105:36006: runtime error: invalid memory address or nil pointer dereference
+goroutine 7 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c2c0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc00015e0e0}, 0xc000028100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc00015e0e0}, 0xc000028100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc00015e0e0}, 0xc000028100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000128f00, {0x93c3b8, 0xc00007e300})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:44 http: panic serving 192.168.1.105:36008: runtime error: invalid memory address or nil pointer dereference
+goroutine 9 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c370)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc00015e1c0}, 0xc000028300)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc00015e1c0}, 0xc000028300)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc00015e1c0}, 0xc000028300)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000128fa0, {0x93c3b8, 0xc00007e480})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:44 http: panic serving 192.168.1.105:36010: runtime error: invalid memory address or nil pointer dereference
+goroutine 18 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0000ea000}, 0xc0000de000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0000ea000}, 0xc0000de000)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0000ea000}, 0xc0000de000)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000c6000, {0x93c3b8, 0xc0000d6000})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:44 http: panic serving 192.168.1.105:36012: runtime error: invalid memory address or nil pointer dereference
+goroutine 20 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee0b0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0000ea0e0}, 0xc0000de100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0000ea0e0}, 0xc0000de100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0000ea0e0}, 0xc0000de100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000c60a0, {0x93c3b8, 0xc0000d6140})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:44 http: panic serving 192.168.1.105:36014: runtime error: invalid memory address or nil pointer dereference
+goroutine 34 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001b4000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0001ae000}, 0xc0001a4000)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0001ae000}, 0xc0001a4000)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0001ae000}, 0xc0001a4000)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018e000, {0x93c3b8, 0xc00019e000})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:44 http: panic serving 192.168.1.105:36016: runtime error: invalid memory address or nil pointer dereference
+goroutine 36 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001b40b0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0001ae0e0}, 0xc0001a4100)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0001ae0e0}, 0xc0001a4100)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0001ae0e0}, 0xc0001a4100)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018e0a0, {0x93c3b8, 0xc00019e140})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:44 http: panic serving 192.168.1.105:36018: runtime error: invalid memory address or nil pointer dereference
+goroutine 22 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee160)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0000ea1c0}, 0xc0000de200)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0000ea1c0}, 0xc0000de200)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0000ea1c0}, 0xc0000de200)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000c6140, {0x93c3b8, 0xc0000d6240})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:44 http: panic serving 192.168.1.105:36020: runtime error: invalid memory address or nil pointer dereference
+goroutine 11 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c420)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc00015e2a0}, 0xc000028400)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc00015e2a0}, 0xc000028400)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc00015e2a0}, 0xc000028400)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000129040, {0x93c3b8, 0xc00007e580})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:44 http: panic serving 192.168.1.105:36022: runtime error: invalid memory address or nil pointer dereference
+goroutine 24 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee210)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0000ea2a0}, 0xc0000de300)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0000ea2a0}, 0xc0000de300)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0000ea2a0}, 0xc0000de300)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000c61e0, {0x93c3b8, 0xc0000d6340})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:44 http: panic serving 192.168.1.105:36024: runtime error: invalid memory address or nil pointer dereference
+goroutine 13 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c4d0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc00015e380}, 0xc000028500)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc00015e380}, 0xc000028500)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc00015e380}, 0xc000028500)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0001290e0, {0x93c3b8, 0xc00007e680})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:51 http: panic serving 192.168.1.105:36028: runtime error: invalid memory address or nil pointer dereference
+goroutine 26 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee2c0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0000ea380}, 0xc0000de400)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0000ea380}, 0xc0000de400)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0000ea380}, 0xc0000de400)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000c6280, {0x93c3b8, 0xc0000d6440})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:51 http: panic serving 192.168.1.105:36030: runtime error: invalid memory address or nil pointer dereference
+goroutine 15 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c580)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc00015e460}, 0xc000028600)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc00015e460}, 0xc000028600)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc00015e460}, 0xc000028600)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000129180, {0x93c3b8, 0xc00007e780})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:51 http: panic serving 192.168.1.105:36032: runtime error: invalid memory address or nil pointer dereference
+goroutine 28 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee370)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0000ea460}, 0xc0000de500)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0000ea460}, 0xc0000de500)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0000ea460}, 0xc0000de500)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000c6320, {0x93c3b8, 0xc0000d6540})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:51 http: panic serving 192.168.1.105:36034: runtime error: invalid memory address or nil pointer dereference
+goroutine 30 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee420)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0000ea540}, 0xc0000de600)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0000ea540}, 0xc0000de600)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0000ea540}, 0xc0000de600)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000c63c0, {0x93c3b8, 0xc0000d6640})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:51 http: panic serving 192.168.1.105:36036: runtime error: invalid memory address or nil pointer dereference
+goroutine 32 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0000ee4d0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0000ea620}, 0xc0000de700)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0000ea620}, 0xc0000de700)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0000ea620}, 0xc0000de700)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0000c6460, {0x93c3b8, 0xc0000d6740})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:51 http: panic serving 192.168.1.105:36038: runtime error: invalid memory address or nil pointer dereference
+goroutine 38 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001b4160)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0001ae1c0}, 0xc0001a4200)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0001ae1c0}, 0xc0001a4200)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0001ae1c0}, 0xc0001a4200)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018e140, {0x93c3b8, 0xc00019e240})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:51 http: panic serving 192.168.1.105:36040: runtime error: invalid memory address or nil pointer dereference
+goroutine 50 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001b4210)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0001ae2a0}, 0xc000028700)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0001ae2a0}, 0xc000028700)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0001ae2a0}, 0xc000028700)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000129220, {0x93c3b8, 0xc00007e880})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:51 http: panic serving 192.168.1.105:36042: runtime error: invalid memory address or nil pointer dereference
+goroutine 41 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc0001b42c0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc0001ae380}, 0xc0001a4300)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc0001ae380}, 0xc0001a4300)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc0001ae380}, 0xc0001a4300)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc00018e1e0, {0x93c3b8, 0xc00019e3c0})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:51 http: panic serving 192.168.1.105:36044: runtime error: invalid memory address or nil pointer dereference
+goroutine 51 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c630)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc00015e540}, 0xc000028800)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc00015e540}, 0xc000028800)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc00015e540}, 0xc000028800)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc0001292c0, {0x93c3b8, 0xc00007e900})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
+2022/03/27 23:43:51 http: panic serving 192.168.1.105:36046: runtime error: invalid memory address or nil pointer dereference
+goroutine 53 [running]:
+net/http.(*conn).serve.func1()
+	/usr/local/go/src/net/http/server.go:1802 +0x13a
+panic({0x8a75e0, 0xb62040})
+	/usr/local/go/src/runtime/panic.go:1047 +0x262
+UKIWcoursework/Server/Handler.checkToken(0xc00013c6e0)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:74 +0xdb
+UKIWcoursework/Server/Handler.Handler.ServeHTTP({0xc000012e80, 0x0}, {0x93ade0, 0xc00015e620}, 0xc000028900)
+	/home/matthew/go/src/UKIWcoursework/Server/Handler/Handler.go:109 +0xa5
+net/http.(*ServeMux).ServeHTTP(0xb72be0, {0x93ade0, 0xc00015e620}, 0xc000028900)
+	/usr/local/go/src/net/http/server.go:2425 +0x135
+net/http.serverHandler.ServeHTTP({0xc00015e000}, {0x93ade0, 0xc00015e620}, 0xc000028900)
+	/usr/local/go/src/net/http/server.go:2879 +0x47a
+net/http.(*conn).serve(0xc000129360, {0x93c3b8, 0xc00007ea00})
+	/usr/local/go/src/net/http/server.go:1930 +0x18b8
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3034 +0xa38
