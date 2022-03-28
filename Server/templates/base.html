@@ -18,6 +18,7 @@
             <a href="/ourmarinas">Our Marinas</a>
             <a href="/aboutus">About Us</a>
             <a href="/sales">Sales</a>
+            <a href="/search">Search</a>
             
             {{ if .User_details }}
             <a href="/myaccount">My Account</a>
@@ -34,17 +35,6 @@
 
     {{ template "content" .}}
 
-    <script>
-        function verticalMenu() {
-            var element = document.getElementById("nav-top")
-
-            if (element.className == "nav-top") {
-                element.className += " burger"
-                return
-            } 
-            
-            element.className = "nav-top"
-        } 
-    </script>
+    <script src="static/js/base.js"></script> 
 </body>
 </html>

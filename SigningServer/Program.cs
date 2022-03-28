@@ -167,6 +167,7 @@ namespace SigningServer{
                 
                 //connection.Send(UTF8Encoding.UTF8.GetBytes("Hello"));
                 HandleRequest(connection);
+                Console.WriteLine();
             }
         }
     }

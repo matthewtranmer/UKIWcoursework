@@ -22,12 +22,11 @@
     padding-bottom: 27px;
 }
 
-@media screen and (min-width: 600px)
+@media screen and (min-width: 800px)
 {
     .nav-top .rightitems{
         float: right;
     }
-      
 }
 
 .nav-top .logo{
@@ -42,7 +41,7 @@
     display: none;
 } 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .nav-top a:not(.logo) {display: none;}
     .nav-top a.burgerimg {
         float: right;

@@ -24,6 +24,20 @@ type Pages struct {
 	template_path string
 }
 
+func (p *Pages) executeTemplates(w http.ResponseWriter, template_name string, data interface{}) error {
+	document, err := template.ParseFiles(p.template_path+"base.html", p.template_path+template_name)
+	if err != nil {
+		return err
+	}
+
+	err = document.Execute(w, data)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 type DefaultTemplateData struct {
 	User_details *handler.UserDetails
 }
@@ -35,22 +49,15 @@ func (p *Pages) home(w http.ResponseWriter, r *http.Request, user_details *handl
 		return handler.HTTPerror{Code: 404, Err: nil}
 	}
 
-	document, err := template.ParseFiles(p.template_path+"base.html", p.template_path+"home.html")
+	err := p.executeTemplates(w, "home.html", DefaultTemplateData{user_details})
 	if err != nil {
 		return handler.HTTPerror{Code: 500, Err: err}
 	}
 
-	err = document.Execute(w, DefaultTemplateData{user_details})
-	if err != nil {
-		return handler.HTTPerror{Code: 500, Err: err}
-	}
 	return nil
 }
 
 func loginUser(w http.ResponseWriter, username string) error {
-	//8 hours
-	//expiration := time.Now().Unix() + 28800
-
 	//30 minute expiration time
 	expiration := time.Now().Unix() + 1800
 
@@ -99,11 +106,6 @@ type LoginTemplateData struct {
 func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
 	fmt.Println("Called login")
 
-	document, err := template.ParseFiles(p.template_path+"base.html", p.template_path+"login.html")
-	if err != nil {
-		return handler.HTTPerror{Code: 500, Err: err}
-	}
-
 	if r.Method == "POST" {
 		stmt, err := p.db.Prepare("SELECT Password FROM user_data WHERE Username = ?")
 		if err != nil {
@@ -126,8 +128,8 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *hand
 				true,
 				"The username you entered does not exist!",
 			}
-			err = document.Execute(w, data)
 
+			err := p.executeTemplates(w, "login.html", data)
 			if err != nil {
 				return handler.HTTPerror{Code: 500, Err: err}
 			}
@@ -159,7 +161,7 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *hand
 			true,
 			"The password you entered was invalid!",
 		}
-		err = document.Execute(w, data)
+		err = p.executeTemplates(w, "login.html", data)
 		if err != nil {
 			return handler.HTTPerror{Code: 500, Err: err}
 		}
@@ -171,11 +173,11 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *hand
 		false,
 		"",
 	}
-	err = document.Execute(w, data)
+
+	err := p.executeTemplates(w, "login.html", data)
 	if err != nil {
 		return handler.HTTPerror{Code: 500, Err: err}
 	}
-
 	return nil
 }
 
@@ -218,12 +220,7 @@ func (p *Pages) signup(w http.ResponseWriter, r *http.Request, user_details *han
 		return nil
 	}
 
-	document, err := template.ParseFiles(p.template_path+"base.html", p.template_path+"signup.html")
-	if err != nil {
-		return handler.HTTPerror{Code: 500, Err: err}
-	}
-
-	err = document.Execute(w, DefaultTemplateData{user_details})
+	err := p.executeTemplates(w, "signup.html", DefaultTemplateData{user_details})
 	if err != nil {
 		return handler.HTTPerror{Code: 500, Err: err}
 	}
@@ -232,14 +229,8 @@ func (p *Pages) signup(w http.ResponseWriter, r *http.Request, user_details *han
 }
 
 func (p *Pages) myaccount(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
-	document, err := template.ParseFiles(p.template_path+"base.html", p.template_path+"myaccount.html")
+	err := p.executeTemplates(w, "myaccount.html", DefaultTemplateData{user_details})
 	if err != nil {
-		return handler.HTTPerror{Code: 500, Err: err}
-	}
-
-	err = document.Execute(w, DefaultTemplateData{user_details})
-	if err != nil {
-		fmt.Println(err)
 		return handler.HTTPerror{Code: 500, Err: err}
 	}
 
@@ -287,4 +278,5 @@ func main() {
 	http.Handle("/logout", handler.Handler{Middleware: pages.logout, Require_login: true})
 
 	http.ListenAndServe("192.168.1.105:8000", nil)
+
 }
