@@ -107,7 +107,7 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *hand
 	fmt.Println("Called login")
 
 	if r.Method == "POST" {
-		stmt, err := p.db.Prepare("SELECT Password FROM user_data WHERE Username = ?")
+		stmt, err := p.db.Prepare("SELECT Password FROM UserData WHERE Username = ?")
 		if err != nil {
 			return handler.HTTPerror{Code: 500, Err: err}
 		}
@@ -185,7 +185,7 @@ func (p *Pages) signup(w http.ResponseWriter, r *http.Request, user_details *han
 	fmt.Println("Called signup")
 
 	if r.Method == "POST" {
-		stmt, err := p.db.Prepare("INSERT INTO user_data (Username, Password, Email, DOB, FirstName, LastName) VALUES (?, ?, ?, ?, ?, ?)")
+		stmt, err := p.db.Prepare("INSERT INTO UserData (Username, Password, Email, DOB, FirstName, LastName) VALUES (?, ?, ?, ?, ?, ?)")
 		if err != nil {
 			return handler.HTTPerror{Code: 500, Err: err}
 		}
@@ -264,12 +264,16 @@ func main() {
 	log.SetOutput(writer)
 
 	pages := new(Pages)
-	pages.db, _ = sql.Open("mysql", "matthew:MysqlPassword111@tcp(127.0.0.1:3306)/UKIW")
+	pages.db, err = sql.Open("mysql", "matthew:MysqlPassword111@tcp(127.0.0.1:3306)/UKIW")
+	if err != nil {
+		panic(err)
+	}
+
 	pages.template_path = "templates/"
 
 	//testng only
-	fs := http.FileServer(http.Dir("/home/matthew/go/src/UKIWcoursework/static"))
-	http.Handle("/static/", http.StripPrefix("/static", fs))
+	//fs := http.FileServer(http.Dir("/home/matthew/go/src/UKIWcoursework/static"))
+	//http.Handle("/static/", http.StripPrefix("/static", fs))
 
 	http.Handle("/", handler.Handler{Middleware: pages.home, Require_login: false})
 	http.Handle("/signup", handler.Handler{Middleware: pages.signup, Require_login: false})
@@ -277,6 +281,7 @@ func main() {
 	http.Handle("/myaccount", handler.Handler{Middleware: pages.myaccount, Require_login: true})
 	http.Handle("/logout", handler.Handler{Middleware: pages.logout, Require_login: true})
 
-	http.ListenAndServe("192.168.1.105:8000", nil)
+	fmt.Println("Server Started!")
+	http.ListenAndServe("127.0.0.1:8000", nil)
 
 }

@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"strconv"
 	"time"
 )
@@ -99,12 +100,29 @@ func checkToken(cookie *http.Cookie) (user_details *UserDetails, err error) {
 	return user_details, nil
 }
 
+func writeaccess(data string) error {
+	file, err := os.OpenFile("Signing/accesses.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	if err != nil {
+		return err
+	}
+
+	_, err = file.WriteString(data + "\n")
+	if err != nil {
+		return err
+	}
+
+	err = file.Close()
+	return err
+}
+
 type Handler struct {
 	Middleware    func(w http.ResponseWriter, r *http.Request, user_details *UserDetails) ErrorResponse
 	Require_login bool
 }
 
 func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	writeaccess(time.Now().String() + "    " + r.RemoteAddr + "    " + r.UserAgent() + "      " + r.URL.Path)
+
 	cookie, _ := r.Cookie("auth_token")
 	user_details, err := checkToken(cookie)
 
