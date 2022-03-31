@@ -1,3 +1,0 @@
-2022-03-30 00:54:32.152375214 +0100 BST m=+9.313090072    127.0.0.1:33754    Mozilla/5.0 (X11; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0      /
-2022-03-30 00:54:32.229197021 +0100 BST m=+9.389911879    127.0.0.1:33764    Mozilla/5.0 (X11; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0      /favicon.ico
-2022-03-30 00:55:30.254656088 +0100 BST m=+67.415370956    127.0.0.1:33768    Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1      /
