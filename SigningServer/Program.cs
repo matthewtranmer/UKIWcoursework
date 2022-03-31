@@ -18,7 +18,7 @@ namespace SigningServer{
         
         Dictionary<string, bool> blacklisted_tokens = new Dictionary<string, bool>();
         Channel<Dictionary<string, string>> blacklist_channel = Channel.CreateUnbounded<Dictionary<string, string>>();
-        const string token_blacklist_path = "/home/matthew/websites/UKIWcoursework/SigningServer/blacklisted_tokens.txt";
+        const string token_blacklist_path = "/home/matthew/Websites/UKIWcoursework/SigningServer/blacklisted_tokens.txt";
 
         void send(Socket socket, byte[] data){
             using BinaryWriter writer = new BinaryWriter(new NetworkStream(socket));
