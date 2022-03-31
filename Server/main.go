@@ -43,11 +43,12 @@ type DefaultTemplateData struct {
 }
 
 func (p *Pages) home(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
-	fmt.Println("Called home")
-
 	if r.URL.Path != "/" {
+		fmt.Println("Page Not Found")
 		return handler.HTTPerror{Code: 404, Err: nil}
 	}
+
+	fmt.Println("Called Home")
 
 	err := p.executeTemplates(w, "home.html", DefaultTemplateData{user_details})
 	if err != nil {
