@@ -44,7 +44,7 @@ type DefaultTemplateData struct {
 
 func (p *Pages) home(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
 	if r.URL.Path != "/" {
-		fmt.Println(time.Now().GoString() + " Page Not Found")
+		fmt.Println(time.Now().Local().String() + " Page Not Found")
 		return handler.HTTPerror{Code: 404, Err: nil}
 	}
 
