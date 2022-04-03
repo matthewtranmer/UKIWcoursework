@@ -1,10 +1,12 @@
 CREATE TABLE UserData (
-    UserID int NOT NULL AUTO_INCREMENT,
-    Username varchar(255),
-    Password varchar(255),
-    LastName varchar(255),
-    FirstName varchar(255),
-    DOB date,
-    Email varchar(255),
+    UserID int NOT NULL UNIQUE AUTO_INCREMENT,
+    Username varchar(255) NOT NULL UNIQUE,
+    Password varchar(255) NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    DOB date NOT NULL,
+    Email varchar(255) NOT NULL,
     PRIMARY KEY (UserID)
 );
+
+ALTER TABLE UserData ADD UNIQUE (Username);

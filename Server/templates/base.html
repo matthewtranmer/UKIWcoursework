@@ -14,20 +14,35 @@
             <img src="/static/img/UKIWlogo.png" width="70" alt="Home">
         </a>
 
+        {{ if .User_details }}
+        <span class="dropdown" style="float: right; width: fit-content;">
+            <span class="dropbtn">
+                <img class="pfp dropbtn" style="padding: 20px 20px 0 20px; float: right;" src="/static/profilepictures/{{.User_details.Username}}.jpeg" alt="My Account" width="32" height="32">
+            </span>
+            <div class="dropdown-content">
+            <a href="#">My Bills</a>
+            <a href="#">Settings</a>
+            <a href="/logout">Log Out</a>
+            </div>
+        </span> 
+        {{end}}
+
         <span class = "rightitems">
-            <a href="/ourmarinas">Our Marinas</a>
-            <a href="/aboutus">About Us</a>
-            <a href="/sales">Sales</a>
-            <a href="/search">Search</a>
-            
             {{ if .User_details }}
-            <a href="/myaccount">My Account</a>
-            {{else}}
-            <a href="/login">Login</a>
-            <a href="/signup">Sign Up</a>
+            <a class="text myaccountlink" href="">My Account</a>
             {{end}}
 
-            <a href="javascript:void(0);" onclick="verticalMenu()" class="burgerimg">
+            <a class="text" href="/ourmarinas">Our Marinas</a>
+            <a class="text" href="/aboutus">About Us</a>
+            <a class="text" href="/sales">Sales</a>
+            <a class="text" href="/search">Search</a>
+            
+            {{ if not .User_details }}
+            <a class="text" href="/login">Login</a>
+            <a class="text" href="/signup">Sign Up</a>
+            {{end}}
+
+            <a href="javascript:void(0);" onclick="verticalMenu()" class="burgerimg" style="margin-top: 13px;">
                 <img src="/static/img/icon.png" width="17">
             </a>
         </span>

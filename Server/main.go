@@ -3,10 +3,14 @@ package main
 import (
 	handler "UKIWcoursework/Server/Handler"
 	signing "UKIWcoursework/Server/Signing"
+	"bytes"
 	"database/sql"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"html/template"
+	"image/jpeg"
+	"image/png"
 	"io"
 	"log"
 	"net/http"
@@ -59,8 +63,8 @@ func (p *Pages) home(w http.ResponseWriter, r *http.Request, user_details *handl
 }
 
 func loginUser(w http.ResponseWriter, username string) error {
-	//30 minute expiration time
-	expiration := time.Now().Unix() + 1800
+	//TESTING EXPIRATION TIME
+	expiration := time.Now().Unix() + 555555
 
 	payload := map[string]string{
 		"username":   username,
@@ -103,7 +107,6 @@ type LoginTemplateData struct {
 	Error_message string
 }
 
-//obviously for testing only
 func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
 	fmt.Println("Called login")
 
@@ -182,6 +185,63 @@ func (p *Pages) login(w http.ResponseWriter, r *http.Request, user_details *hand
 	return nil
 }
 
+func saveFormImage(r *http.Request, key string, path string, username string) error {
+	form_file, headers, err := r.FormFile(key)
+	if err.Error() == "http: no such file" {
+		default_img, err := os.ReadFile(path + "/default/default.jpeg")
+		if err != nil {
+			return err
+		}
+
+		err = os.WriteFile(path+username+".jpeg", default_img, 0644)
+		if err != nil {
+			return err
+		}
+
+		return nil
+	}
+
+	if err != nil {
+		return err
+	}
+
+	buffer := make([]byte, headers.Size)
+	_, err = form_file.Read(buffer)
+	if err != nil {
+		return err
+	}
+
+	content_type := http.DetectContentType(buffer)
+
+	if content_type == "image/png" {
+		img, _ := png.Decode(bytes.NewReader(buffer))
+
+		jpg_buf := new(bytes.Buffer)
+		jpeg.Encode(jpg_buf, img, nil)
+
+		buffer = jpg_buf.Bytes()
+	} else if content_type != "image/jpeg" {
+		return errors.New("File type unsupported")
+	}
+
+	file, err := os.OpenFile(path+username+".jpeg", os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		return err
+	}
+
+	_, err = file.Write(buffer)
+	if err != nil {
+		return err
+	}
+
+	err = file.Close()
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (p *Pages) signup(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
 	fmt.Println("Called signup")
 
@@ -191,11 +251,12 @@ func (p *Pages) signup(w http.ResponseWriter, r *http.Request, user_details *han
 			return handler.HTTPerror{Code: 500, Err: err}
 		}
 
-		err = r.ParseForm()
+		err = r.ParseMultipartForm(1048576)
 		if err != nil {
 			return handler.HTTPerror{Code: 500, Err: err}
 		}
 
+		//will cause error if not sent
 		DOB := r.PostForm["dob-year"][0] + "-" + r.PostForm["dob-month"][0] + "-" + r.PostForm["dob-day"][0]
 		password_hash, err := bcrypt.GenerateFromPassword([]byte(r.PostForm["password"][0]), 12)
 		if err != nil {
@@ -215,6 +276,12 @@ func (p *Pages) signup(w http.ResponseWriter, r *http.Request, user_details *han
 		}
 
 		defer stmt.Close()
+
+		path := "/home/matthew/Websites/UKIWcoursework/static/profilepictures/"
+		err = saveFormImage(r, "pfp", path, r.PostForm["username"][0])
+		if err != nil {
+			return handler.HTTPerror{Code: 500, Err: err}
+		}
 
 		loginUser(w, r.PostForm["username"][0])
 		http.Redirect(w, r, "/", http.StatusSeeOther)
@@ -273,7 +340,7 @@ func main() {
 	pages.template_path = "templates/"
 
 	//testng only
-	//fs := http.FileServer(http.Dir("/home/matthew/go/src/UKIWcoursework/static"))
+	//fs := http.FileServer(http.Dir("/home/matthew/Websites/UKIWcoursework/static"))
 	//http.Handle("/static/", http.StripPrefix("/static", fs))
 
 	http.Handle("/", handler.Handler{Middleware: pages.home, Require_login: false})

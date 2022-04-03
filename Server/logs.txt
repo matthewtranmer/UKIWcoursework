@@ -1,6 +1,0 @@
-2022/03/29 23:48:36 dial tcp 127.0.0.1:3306: connect: connection refused
-2022/03/30 00:24:37 Error 1044: Access denied for user 'matthew'@'localhost' to database 'UKIW'
-2022/03/30 00:27:10 Error 1044: Access denied for user 'matthew'@'localhost' to database 'UKIW'
-2022/03/30 00:28:34 Error 1146: Table 'UKIW.User_Data' doesn't exist
-2022/03/30 00:29:56 Error 1054: Unknown column 'Email' in 'field list'
-2022/03/30 00:52:37 127.0.0.1:8000    Mozilla/5.0 (iPhone; CPU iPhone OS 14_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1      /

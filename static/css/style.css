@@ -1,5 +1,52 @@
 /* Top Nav Stylings */
 
+.dropdown {
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  
+  .dropdown-content {
+    display: none;
+    margin-top: 50px;
+    position: fixed;
+    background-color: #ffffff;
+
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    
+    -moz-transform: translateX(-22%);
+    transform: translateX(-22%);
+    -ms-transform: translateX(-22%);
+    -o-transform: translateX(-22%);
+    -webkit-transform: translateX(-22%);
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: inline-block;
+  }
+
 .nav-top {
     background-color: #ffffff;
     overflow: hidden;
@@ -17,13 +64,14 @@
     color: #000000f1;
 }
 
-.nav-top .rightitems a{
+.nav-top .rightitems .text{
     padding-top: 27px;
     padding-bottom: 27px;
 }
 
 @media screen and (min-width: 800px)
 {
+    .nav-top .myaccountlink {display: none;}
     .nav-top .rightitems{
         float: right;
     }
@@ -33,7 +81,7 @@
     padding-top: 20px;
 }
 
-.nav-top a:hover:not(.burgerimg, .logo) {
+.nav-top a:hover:not(.burgerimg, .logo, .pfp) {
     background-color: #dfdfdf;
 }
 
@@ -43,6 +91,7 @@
 
 @media screen and (max-width: 800px) {
     .nav-top a:not(.logo) {display: none;}
+    .nav-top .pfp {display: none;}
     .nav-top a.burgerimg {
         float: right;
         display: block;
@@ -150,6 +199,16 @@
     background-color: #e0291c; 
     color: #000000;
     margin-bottom: 16px;
+    border-radius: 5px;
+    padding: 22px;
+    
+}
+
+.info {
+    border-width: 10px;
+    background-color: #003cff; 
+    color: #000000;
+    margin-bottom: 4px;
     border-radius: 5px;
     padding: 22px;
     
