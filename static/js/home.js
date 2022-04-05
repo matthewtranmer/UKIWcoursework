@@ -9,6 +9,6 @@ function splash(e){
         document.getElementById("splashimg").setAttribute("src", "/static/img/homesplash.jpg")
     }
     else{
-        document.getElementById("splashimg").setAttribute("src", "/static/img/smallersplash.png")
+        document.getElementById("splashimg").setAttribute("src", "/static/img/smallersplash.jpg")
     }
 }

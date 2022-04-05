@@ -42,6 +42,8 @@ function validate(){
         createInfoMessage("Please enter your date of birth correctly")
     }
 
+    //email
+
     if(validated){
         var form = document.getElementById("signupform")
         form.submit()
