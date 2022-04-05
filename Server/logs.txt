@@ -1,0 +1,1 @@
+2022/04/04 17:03:51 Error 1062: Duplicate entry 'MRT' for key 'UserData.Username'
