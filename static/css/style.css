@@ -234,6 +234,22 @@
 
 /* Other Stylings */
 
+.textbox{
+    word-wrap: break-word;
+    
+    padding: 5%;
+
+    background-color: rgba(255, 255, 255, 0.3);
+    display: inline-block;
+}
+
+body{
+    margin-top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to right,#34adc2, #0fb397);
+}
+
+/*
 .map{
     margin-left: 5px;
     
@@ -242,11 +258,7 @@
     height: 600px;
 }
 
-body{
-    margin-top: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(to right,#34adc2, #0fb397);
-}
+
 
 .textbox{
     word-wrap: break-word;
@@ -258,3 +270,4 @@ body{
     margin-left: 40px;
     display: inline-block;
 }
+*/
