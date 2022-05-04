@@ -16,8 +16,8 @@ function resize(e){
     
     console.log(width);
     if(width > 900){
-        document.getElementById("desktop-content").setAttribute("style", "display: block;")
         document.getElementById("mobile-content").setAttribute("style", "display: none;")
+        document.getElementById("desktop-content").setAttribute("style", "display: block;")
     }
     else{
         document.getElementById("desktop-content").setAttribute("style", "display: none;")
