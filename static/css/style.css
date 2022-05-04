@@ -50,6 +50,7 @@
     margin: -8px -8px;
     background-color: #ffffff;
     overflow: hidden;
+    margin-bottom: 5px;
 }
   
 .nav-top a {
@@ -237,8 +238,8 @@
 .textbox{
     word-wrap: break-word;
     
-    padding: 5%;
-
+    padding: 25px;
+    margin-bottom: 5px;
     background-color: rgba(255, 255, 255, 0.3);
     display: inline-block;
 }
@@ -247,6 +248,12 @@ body{
     margin-top: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-image: linear-gradient(to right,#34adc2, #0fb397);
+}
+
+.centre {
+  margin: auto;
+  width: 50%;
+  display: block;
 }
 
 /*

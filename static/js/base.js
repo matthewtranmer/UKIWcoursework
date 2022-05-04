@@ -8,3 +8,19 @@ function verticalMenu() {
     
     element.className = "nav-top"
 } 
+
+window.addEventListener('resize', resize);
+resize()
+function resize(e){
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    
+    console.log(width);
+    if(width > 900){
+        document.getElementById("desktop-content").setAttribute("style", "display: block;")
+        document.getElementById("mobile-content").setAttribute("style", "display: none;")
+    }
+    else{
+        document.getElementById("desktop-content").setAttribute("style", "display: none;")
+        document.getElementById("mobile-content").setAttribute("style", "display: block;")
+    }
+}

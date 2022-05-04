@@ -322,6 +322,15 @@ func (p *Pages) logout(w http.ResponseWriter, r *http.Request, user_details *han
 	return nil
 }
 
+func (p *Pages) about(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
+	err := p.executeTemplates(w, "about.html", DefaultTemplateData{user_details})
+	if err != nil {
+		return handler.HTTPerror{Code: 500, Err: err}
+	}
+
+	return nil
+}
+
 func main() {
 	file, err := os.OpenFile("logs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
@@ -343,7 +352,11 @@ func main() {
 	//fs := http.FileServer(http.Dir("/home/matthew/Websites/UKIWcoursework/static"))
 	//http.Handle("/static/", http.StripPrefix("/static", fs))
 
+	//General Services
 	http.Handle("/", handler.Handler{Middleware: pages.home, Require_login: false})
+	http.Handle("/about", handler.Handler{Middleware: pages.about, Require_login: false})
+	
+	//Acount Services
 	http.Handle("/signup", handler.Handler{Middleware: pages.signup, Require_login: false})
 	http.Handle("/login", handler.Handler{Middleware: pages.login, Require_login: false})
 	http.Handle("/myaccount", handler.Handler{Middleware: pages.myaccount, Require_login: true})
