@@ -15,9 +15,10 @@
         </a>
 
         {{ if .User_details }}
+        <h1>fdg</h1>
         <span class="dropdown" style="float: right; width: fit-content;">
             <span class="dropbtn">
-                <img class="pfp dropbtn" style="padding: 20px 20px 0 20px; float: right;" src="/static/profilepictures/{{.User_details.Username}}.jpeg" alt="My Account" width="32" height="32">
+                <img class="pfp dropbtn" style="padding: 20px 20px 0 20px; float: right;" src="/static/profilepictures/a.jpeg" alt="My Account" width="32" height="32">
             </span>
             <div class="dropdown-content">
             <a href="#">My Bills</a>
@@ -25,7 +26,9 @@
             <a href="/logout">Log Out</a>
             </div>
         </span> 
+        {{.User_details.Username}}
         {{end}}
+        
 
         <span class = "rightitems">
             {{ if .User_details }}
@@ -34,7 +37,14 @@
 
             <a class="text" href="/ourmarinas">Our Marinas</a>
             <a class="text" href="/about">About Us</a>
-            <a class="text" href="/sales">Sales</a>
+            
+            <div class="dropdown">
+                <span>Mouse over me</span>
+                <div class="dropdown-content">
+                    <p>Hello World!</p>
+                </div>
+            </div>
+            
             <a class="text" href="/search">Search</a>
             
             {{ if not .User_details }}

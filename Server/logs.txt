@@ -1,1 +1,5 @@
 2022/04/04 17:03:51 Error 1062: Duplicate entry 'MRT' for key 'UserData.Username'
+2022/05/09 12:20:36 template: base.html:21:134: executing "base.html" at <.User_details.Username>: nil pointer evaluating *Handler.UserDetails.Username
+2022/05/09 12:20:36 http: superfluous response.WriteHeader call from UKIWcoursework/Server/Handler.Handler.ServeHTTP (Handler.go:145)
+2022/05/09 12:20:52 template: base.html:22:134: executing "base.html" at <.User_details.Username>: nil pointer evaluating *Handler.UserDetails.Username
+2022/05/09 12:20:52 http: superfluous response.WriteHeader call from UKIWcoursework/Server/Handler.Handler.ServeHTTP (Handler.go:145)
