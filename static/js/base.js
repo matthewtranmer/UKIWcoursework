@@ -1,20 +1,19 @@
 function verticalMenu() {
-    var element = document.getElementById("nav-top")
+    var element = document.getElementById("topnav")
 
-    if (element.className == "nav-top") {
+    if (element.className == "topnav") {
         element.className += " burger"
         return
     } 
     
-    element.className = "nav-top"
+    element.className = "topnav"
 } 
 
 window.addEventListener('resize', resize);
 resize()
 function resize(e){
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-    
-    console.log(width);
+
     if(width > 900){
         document.getElementById("mobile-content").setAttribute("style", "display: none;")
         document.getElementById("desktop-content").setAttribute("style", "display: block;")
