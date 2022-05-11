@@ -12,16 +12,30 @@
     <div class="topnav" id="topnav">
       <a href="/" style="float: left; padding: 5px;" class="element logo"><img src="/static/img/UKIWlogo.jpeg" width="70" alt="Home"></a>
       
-      <a href="/signup" class="hover element">Sign Up</a>
-      <a href="/login" class="hover element">Login</a>
+      {{ if .User_details }}
+      <div class="dropdown element hover">
+        <button class="dropbtn">
+            <img class="pfp dropbtn" src="/static/profilepictures/{{ .User_details.username }}.jpeg" alt="My Account" width="16" height="16">
+        </button>
+        <div class="dropdown-content pfpcontent">
+            <a href="/bills">My Bills</a>
+            <a href="/accounts/settings">Settings</a>
+            <a href="/accounts/logout">Log Out</a>
+        </div>
+      </div> 
+      {{ else }}
+      <a href="/accounts/signup" class="hover element">Sign Up</a>
+      <a href="/accounts/login" class="hover element">Login</a>
+      {{ end }}
+      
       <a href="/search" class="hover element">Search</a>
       <a href="/about" class="hover element">About Us</a>
       
       <div class="dropdown element hover">
         <button class="dropbtn">Sales</button>
         <div class="dropdown-content">
-            <a href="/shops">Shops</a>
-            <a href="/boats">Boats</a>
+            <a href="/sales/shops">Shops</a>
+            <a href="/sales/boats">Boats</a>
         </div>
       </div> 
       

@@ -331,6 +331,43 @@ func (p *Pages) about(w http.ResponseWriter, r *http.Request, user_details *hand
 	return nil
 }
 
+
+func (p *Pages) ourmarinas(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
+	err := p.executeTemplates(w, "ourmarinas.html", DefaultTemplateData{user_details})
+	if err != nil {
+		return handler.HTTPerror{Code: 500, Err: err}
+	}
+
+	return nil
+}
+
+func (p *Pages) shops(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
+	err := p.executeTemplates(w, "shops.html", DefaultTemplateData{user_details})
+	if err != nil {
+		return handler.HTTPerror{Code: 500, Err: err}
+	}
+
+	return nil
+}
+
+func (p *Pages) boats(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
+	err := p.executeTemplates(w, "boats.html", DefaultTemplateData{user_details})
+	if err != nil {
+		return handler.HTTPerror{Code: 500, Err: err}
+	}
+
+	return nil
+}
+
+func (p *Pages) search(w http.ResponseWriter, r *http.Request, user_details *handler.UserDetails) handler.ErrorResponse {
+	err := p.executeTemplates(w, "search.html", DefaultTemplateData{user_details})
+	if err != nil {
+		return handler.HTTPerror{Code: 500, Err: err}
+	}
+
+	return nil
+}
+
 func main() {
 	file, err := os.OpenFile("logs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
@@ -355,12 +392,16 @@ func main() {
 	//General Services
 	http.Handle("/", handler.Handler{Middleware: pages.home, Require_login: false})
 	http.Handle("/about", handler.Handler{Middleware: pages.about, Require_login: false})
+	http.Handle("/ourmarinas", handler.Handler{Middleware: pages.ourmarinas, Require_login: false})
+	http.Handle("/sales/shops", handler.Handler{Middleware: pages.shops, Require_login: false})
+	http.Handle("/sales/boats", handler.Handler{Middleware: pages.boats, Require_login: false})
+	http.Handle("/search", handler.Handler{Middleware: pages.search, Require_login: false})
 	
 	//Acount Services
-	http.Handle("/signup", handler.Handler{Middleware: pages.signup, Require_login: false})
-	http.Handle("/login", handler.Handler{Middleware: pages.login, Require_login: false})
-	http.Handle("/myaccount", handler.Handler{Middleware: pages.myaccount, Require_login: true})
-	http.Handle("/logout", handler.Handler{Middleware: pages.logout, Require_login: true})
+	http.Handle("/accounts/signup", handler.Handler{Middleware: pages.signup, Require_login: false})
+	http.Handle("/accounts/login", handler.Handler{Middleware: pages.login, Require_login: false})
+	http.Handle("/accounts/myaccount", handler.Handler{Middleware: pages.myaccount, Require_login: true})
+	http.Handle("/accounts/logout", handler.Handler{Middleware: pages.logout, Require_login: true})
 
 	fmt.Println("Server Started!")
 	http.ListenAndServe("127.0.0.1:8000", nil)

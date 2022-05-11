@@ -6,3 +6,9 @@
 2022/05/11 08:51:03 html/template:base.html: "\"" in attribute name: "/static/img/icon.jpeg\" width=\"17"
 2022/05/11 08:51:11 html/template:base.html: "\"" in attribute name: "/static/img/icon.jpeg\" width=\"17"
 2022/05/11 08:51:46 html/template:base.html: "<" in attribute name: "\n        <img src=\"/static/img/i"
+2022/05/11 09:43:04 template: base.html:18:81: executing "base.html" at <.User_details.Username>: nil pointer evaluating *Handler.UserDetails.Username
+2022/05/11 09:43:04 http: superfluous response.WriteHeader call from UKIWcoursework/Server/Handler.Handler.ServeHTTP (Handler.go:145)
+2022/05/11 10:31:04 open templates/ourmarinas.html: no such file or directory
+2022/05/11 10:31:04 open templates/ourmarinas.html: no such file or directory
+2022/05/11 10:37:21 open templates/shops.html: no such file or directory
+2022/05/11 10:55:25 dial tcp 127.0.0.1:3306: connect: connection refused
